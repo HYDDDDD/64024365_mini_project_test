@@ -19,6 +19,7 @@ function App() {
 
       await onSubmitService(url, formData);
       setCustomer({});
+      
     }
   };
 
