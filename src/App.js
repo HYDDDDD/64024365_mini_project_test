@@ -19,7 +19,6 @@ function App() {
 
       await onSubmitService(url, formData);
       setCustomer({});
-      
     }
   };
 
@@ -50,8 +49,10 @@ function App() {
   //         },
   //       }
   //     );
+
   //     console.log(response.data);
   //   } catch (error) {
+
   //     console.error(error);
   //   }
   // };
