@@ -19,6 +19,7 @@ function App() {
 
       await onSubmitService(url, formData);
       setCustomer({});
+      
     }
   };
 
@@ -49,30 +50,10 @@ function App() {
   //         },
   //       }
   //     );
-
   //     console.log(response.data);
   //   } catch (error) {
-
   //     console.error(error);
   //   }
-  // };
-
-  // const handleValidation = () => {
-  //   if (customer.name === "") {
-  //     alert("กรุณากรอกชื่อของคุณ.");
-  //     return false;
-  //   } else if (customer.dormName === "") {
-  //     alert("กรุณากรอกชื่อหอพัก.");
-  //     return false;
-  //   } else if (customer.room === "") {
-  //     alert("กรุณากรอกห้องพัก.");
-  //     return false;
-  //   } else if (customer.details === "") {
-  //     alert("กรุณาแจ้งรายละเอียดปัญหา.");
-  //     return false;
-  //   }
-
-  //   return true;
   // };
 
   return (
