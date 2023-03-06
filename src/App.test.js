@@ -5,6 +5,7 @@ const mockCustomerFullSuccessCase = {
   dormName: "หอพัก AAA",
   room: 123,
   details: "เก้าอี้หัก",
+  image: "D0qHcvLUwAQyHN4.jpg",
 };
 
 const mockCustomerFullNameEng = {
