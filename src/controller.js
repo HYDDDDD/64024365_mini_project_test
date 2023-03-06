@@ -1,4 +1,4 @@
-export const handleValidation = (customer) => {
+export const handleValidation = (customer,image) => {
   if (!customer?.name?.trim()) {
     console.log("กรุณากรอกชื่อของคุณ.");
     return false;
@@ -10,6 +10,9 @@ export const handleValidation = (customer) => {
     return false;
   } else if (!customer?.details?.trim()) {
     console.log("กรุณาแจ้งรายละเอียดปัญหา.");
+    return false;
+  } else if (image === null) {
+    console.log("กรุณาอัพโหลดรูปภาพ");
     return false;
   }
 

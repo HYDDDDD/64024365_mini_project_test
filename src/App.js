@@ -7,10 +7,12 @@ function App() {
   const [customer, setCustomer] = useState({});
   const [image, setImage] = useState(null);
 
+  console.log(customer);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (handleValidation(customer) === true) {
+    if (handleValidation(customer, image) === true) {
       let url = "http://localhost:8080/report/";
 
       const formData = new FormData();
@@ -19,7 +21,6 @@ function App() {
 
       await onSubmitService(url, formData);
       setCustomer({});
-      
     }
   };
 
@@ -130,7 +131,13 @@ function App() {
                     setCustomer({ ...customer, name: event.target.value });
                   }
                 }}
-                required
+                onKeyPress={(e) => {
+                  let regex = /^[a-zA-Zก-๏\s]+$/;
+                  if (!regex.test(e.key)) {
+                    e.preventDefault();
+                  }
+                }}
+                // required
               />
 
               <span>หอพัก</span>
@@ -141,15 +148,10 @@ function App() {
                 maxLength="15"
                 value={customer.dormName}
                 onChange={(event) => {
-                  let regex = /^[a-zA-Zก-๏0-9\s]+$/;
-                  if (
-                    event.target.value === "" ||
-                    regex.test(event.target.value)
-                  ) {
-                    setCustomer({ ...customer, dormName: event.target.value });
-                  }
+                  setCustomer({ ...customer, dormName: event.target.value });
                 }}
-                required
+
+                // required
               />
 
               <span>ห้องพัก</span>
@@ -168,7 +170,13 @@ function App() {
                     setCustomer({ ...customer, room: event.target.value });
                   }
                 }}
-                required
+                onKeyPress={(e) => {
+                  let regex = /^[0-9\b]+$/;
+                  if (!regex.test(e.key)) {
+                    e.preventDefault();
+                  }
+                }}
+                // required
               />
 
               <span>รูปภาพสิ่งของชำรุด</span>
@@ -179,7 +187,7 @@ function App() {
                 onChange={(event) => {
                   setImage(event.target.files[0]);
                 }}
-                required
+                // required
               />
 
               <span>แจ้งรายละเอียดปัญหา</span>
@@ -194,7 +202,7 @@ function App() {
                 onChange={(event) => {
                   setCustomer({ ...customer, details: event.target.value });
                 }}
-                required
+                // required
               ></textarea>
               <br />
               <button type="submit" className="btn btn-light">
